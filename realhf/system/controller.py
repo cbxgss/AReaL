@@ -589,6 +589,10 @@ class RayController:
 
                 jobs = []
                 for node_idx, i in enumerate(range(0, count, n_gpus_per_node)):
+                    logger.info(
+                        f"Scheduling {worker_type} workers {i} to {i + n_gpus_per_node} "
+                        f"on node {available_nodes[node_idx]}."
+                    )
                     _schedules = all_schedules[i : i + n_gpus_per_node]
                     _comms = comms[i : i + n_gpus_per_node]
                     for _idx, (comm, sch) in enumerate(zip(_comms, _schedules)):
