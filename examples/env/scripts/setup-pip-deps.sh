@@ -1,7 +1,7 @@
 #!/bin/bash
 # basic dependencies
 uv pip install -U pip
-uv pip uninstall torch deepspeed flash-attn pynvml cugraph-dgl dask-cuda cugraph-service-server raft-dask cugraph cuml cugraph-pyg -y
+uv pip uninstall torch deepspeed flash-attn pynvml cugraph-dgl dask-cuda cugraph-service-server raft-dask cugraph cuml cugraph-pyg
 uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0
 uv pip install "sglang[all]==0.4.6.post4" 
 uv pip install megatron-core==0.11.0 nvidia-ml-py
@@ -21,4 +21,4 @@ uv pip install -e "python[all]" --no-deps
 cd $AREAL_PATH
 
 # Install AReaL
-uv pip install -e .
+uv pip install -e . --prerelease=allow
