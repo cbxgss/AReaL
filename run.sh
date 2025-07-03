@@ -41,11 +41,11 @@ python training/main_async_ppo.py \
     ref.path=Qwen/Qwen3-1.7B \
     dataset.path=$HF_HOME/hub/datasets--inclusionAI--AReaL-RL-Data/snapshots/07dfc8977909d38366d4e913eb3648a939e5aeb4/data/deepscaler_40k_0319.jsonl \
     dataset.train_bs_n_seqs=32 \
-    group_size=${gpu_nums} \
+    group_size=8 \
     ppo.gen.max_new_tokens=4096 \
     ppo.ppo_n_minibatches=4 \
     actor_train.mb_spec.max_tokens_per_mb=32768 \
     actor_inf.mb_spec.max_tokens_per_mb=32768 \
-    max_concurrent_rollouts=32 \
+    max_concurrent_rollouts=16 \
     max_head_offpolicyness=4 \
     2>&1 | tee outpus/$experiment_name/log.log
