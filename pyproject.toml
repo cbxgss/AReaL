@@ -61,7 +61,7 @@ dependencies = [
     "colorlog",
     "psutil",
     "pynvml",
-    "swanlab[dashboard]",
+    "swanlab[dashboard]>=0.1.7b1",
     
     # Performance and compression
     "ninja",
