@@ -48,4 +48,5 @@ python training/main_async_ppo.py \
     actor_inf.mb_spec.max_tokens_per_mb=32768 \
     max_concurrent_rollouts=16 \
     max_head_offpolicyness=4 \
+    mem_per_master_worker=2000 mem_per_model_worker=9000 \
     2>&1 | tee outpus/$experiment_name/log.log
