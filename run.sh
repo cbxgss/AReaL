@@ -46,6 +46,7 @@ python training/main_async_ppo.py \
     group_size=8 \
     ppo.gen.max_new_tokens=4096 \
     ppo.ppo_n_minibatches=4 \
+    actor.sglang.attention_backend=fa3 \
     actor_train.mb_spec.max_tokens_per_mb=32768 \
     actor_inf.mb_spec.max_tokens_per_mb=32768 \
     max_concurrent_rollouts=16 \
