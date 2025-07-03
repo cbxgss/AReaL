@@ -29,12 +29,14 @@ gpu_nums=$(echo $CUDA_VISIBLE_DEVICES | awk -F',' '{print NF}')
 
 experiment_name="async_ppo_qwen3"
 
-mkdir -p outpus/$experiment_name/checkpoints
+current_dir=$(pwd)
+
+mkdir -p ${current_dir}/outpus/$experiment_name/checkpoints
 
 python training/main_async_ppo.py \
     n_nodes=1 n_gpus_per_node=${gpu_nums} \
     allocation_mode=sglang.d4p1m1+d2p2m1 \
-    cluster.fileroot=outpus/$experiment_name/checkpoints \
+    cluster.fileroot=${current_dir}/outpus/$experiment_name/checkpoints \
     actor.type._class=qwen3 \
     actor.path=Qwen/Qwen3-1.7B \
     ref.type._class=qwen3 \
@@ -49,4 +51,4 @@ python training/main_async_ppo.py \
     max_concurrent_rollouts=16 \
     max_head_offpolicyness=4 \
     mem_per_master_worker=2000 mem_per_model_worker=9000 \
-    2>&1 | tee outpus/$experiment_name/log.log
+    2>&1 | tee ${current_dir}/outpus/$experiment_name/log.log
