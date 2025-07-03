@@ -29,6 +29,8 @@ gpu_nums=$(echo $CUDA_VISIBLE_DEVICES | awk -F',' '{print NF}')
 
 experiment_name="async_ppo_qwen3"
 
+mkdir -p outpus/$experiment_name/checkpoints
+
 python training/main_async_ppo.py \
     n_nodes=1 n_gpus_per_node=${gpu_nums} \
     allocation_mode=sglang.d4p1m1+d2p2m1 \
