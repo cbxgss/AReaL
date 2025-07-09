@@ -37,7 +37,7 @@ python training/main_async_ppo.py \
     n_nodes=1 n_gpus_per_node=${gpu_nums} \
     allocation_mode=sglang.d4p1m1+d2p2m1 \
     cluster.fileroot=${current_dir}/outputs/$experiment_name/checkpoints \
-    actor.type._class=qwen3 \
+    actor.type._class=qwen2 \
     actor.path=Qwen/Qwen2.5-3B-Instruct \
     ref.type._class=qwen2.5 \
     ref.path=Qwen/Qwen2.5-3B-Instruct \
