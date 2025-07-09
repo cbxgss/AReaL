@@ -27,7 +27,7 @@ set_variable_with_default() {
 set_variable_with_default CUDA_VISIBLE_DEVICES device 0,1 2,3 4,5 6,7 0,1,2,3 4,5,6,7 0,1,2,3,4,5,6,7
 gpu_nums=$(echo $CUDA_VISIBLE_DEVICES | awk -F',' '{print NF}')
 
-experiment_name="async_ppo_qwen3"
+experiment_name="async_ppo_qwen2.5"
 
 current_dir=$(pwd)
 
@@ -38,9 +38,9 @@ python training/main_async_ppo.py \
     allocation_mode=sglang.d4p1m1+d2p2m1 \
     cluster.fileroot=${current_dir}/outputs/$experiment_name/checkpoints \
     actor.type._class=qwen3 \
-    actor.path=Qwen/Qwen3-1.7B \
-    ref.type._class=qwen3 \
-    ref.path=Qwen/Qwen3-1.7B \
+    actor.path=Qwen/Qwen2.5-3B-Instruct \
+    ref.type._class=qwen2.5 \
+    ref.path=Qwen/Qwen2.5-3B-Instruct \
     dataset.path=$HF_HOME/hub/datasets--inclusionAI--AReaL-RL-Data/snapshots/07dfc8977909d38366d4e913eb3648a939e5aeb4/data/deepscaler_40k_0319.jsonl \
     dataset.train_bs_n_seqs=32 \
     group_size=8 \
