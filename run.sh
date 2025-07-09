@@ -44,7 +44,7 @@ python training/main_async_ppo.py \
     dataset.path=$HF_HOME/hub/datasets--inclusionAI--AReaL-RL-Data/snapshots/07dfc8977909d38366d4e913eb3648a939e5aeb4/data/deepscaler_40k_0319.jsonl \
     dataset.train_bs_n_seqs=32 \
     group_size=8 \
-    ppo.gen.max_new_tokens=10240 \
+    ppo.gen.max_new_tokens=8196 \
     ppo.ppo_n_minibatches=4 \
     actor.sglang.attention_backend=fa3 \
     actor_train.mb_spec.max_tokens_per_mb=32768 \
